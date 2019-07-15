@@ -42,8 +42,10 @@ handTrack.startVideo(video)
 handTrack.load(modelParams)
 .then(loadedModel => {
     model = loadedModel;
+    //Remove Loading Bar
+    document.body.removeChild(document.getElementById("loading"));
 });
-    
+
 
 function detectHand() {
     model.detect(video) 
@@ -54,8 +56,7 @@ function detectHand() {
                 audio.currentTime = 0;
                 audio.play();
             }
-
             /* You can render the predictions by enabling the above line of code */
-            //model.renderPredictions(predictions, canvas, context, video);
+            // model.renderPredictions(predictions, canvas, context, video);
         });
 }
